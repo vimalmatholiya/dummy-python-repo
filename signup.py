@@ -6,5 +6,5 @@ def register(age):
     """Register a user, defaulting invalid ages to 0."""
     try:
         return validate_age(age)
-    except ValueError:
+    except (ValueError, TypeError):
         return 0
