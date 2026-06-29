@@ -2,8 +2,8 @@
 
 
 def find_user(users, uid):
-    """Return the user with ``uid``; raise KeyError if there is none."""
+    """Return the user with ``uid``, or None if there is none."""
     for user in users:
         if user["id"] == uid:
             return user
-    raise KeyError(uid)
+    return None
