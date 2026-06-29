@@ -4,5 +4,5 @@ from settings_loader import load_settings
 
 def bootstrap(config_path):
     """Load configuration, failing fast on a missing required name."""
-    settings = load_settings(config_path, strict=True)
+    settings = load_settings(config_path, raise_on_missing=True)
     return settings["name"]
