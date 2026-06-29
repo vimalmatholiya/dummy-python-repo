@@ -6,5 +6,5 @@ def ingest(text):
     """Parse a payload, returning None when it is malformed."""
     try:
         return parse_payload(text)
-    except ValueError:
+    except (ValueError, RuntimeError):
         return None
