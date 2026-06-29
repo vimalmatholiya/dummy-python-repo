@@ -4,5 +4,5 @@ from bounds import get_bounds
 
 def span(shape):
     """Return the size of ``shape``'s bounding span."""
-    low, high = get_bounds(shape)
+    low, high = get_bounds(shape)[:2]
     return high - low
