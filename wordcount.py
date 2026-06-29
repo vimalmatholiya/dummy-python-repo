@@ -4,4 +4,4 @@ from tokenizer import tokenize
 
 def word_count(text):
     """Return the number of tokens in ``text``."""
-    return len(tokenize(text))
+    return sum(1 for _ in tokenize(text))
