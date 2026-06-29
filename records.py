@@ -2,5 +2,5 @@
 
 
 def get_user_record(uid):
-    """Return ``(id, name, email)`` for ``uid``."""
-    return (uid, "name", "email")
+    """Return a ``{"id", "name", "email"}`` mapping for ``uid``."""
+    return {"id": uid, "name": "name", "email": "email"}
