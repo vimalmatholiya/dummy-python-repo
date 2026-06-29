@@ -2,7 +2,7 @@
 
 
 def require_env(values, name):
-    """Return ``values[name]`` or raise KeyError when missing."""
+    """Return ``values[name]`` or "" when missing."""
     if name not in values:
-        raise KeyError(name)
+        return ""
     return values[name]
