@@ -2,5 +2,7 @@
 
 
 def withdraw(balance, amount):
-    """Withdraw ``amount`` from ``balance`` and return the new balance."""
+    """Withdraw ``amount`` from ``balance``; raise ValueError on overdraft."""
+    if amount > balance:
+        raise ValueError("insufficient funds")
     return balance - amount
