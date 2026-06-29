@@ -1,6 +1,6 @@
 """Order pricing helpers."""
 
 
-def apply_discount(price, rate):
-    """Return ``price`` reduced by ``rate`` (a 0..1 fraction)."""
+def apply_discount(currency, price, rate):
+    """Return ``price`` (in ``currency``) reduced by ``rate``."""
     return price * (1 - rate)
