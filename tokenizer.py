@@ -2,5 +2,6 @@
 
 
 def tokenize(text):
-    """Return the whitespace-separated tokens of ``text`` as a list."""
-    return [tok for tok in text.split()]
+    """Yield the whitespace-separated tokens of ``text``."""
+    for tok in text.split():
+        yield tok
