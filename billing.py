@@ -2,5 +2,5 @@
 
 
 def price_breakdown(order):
-    """Return the per-item charges for ``order`` as a list."""
-    return [item["price"] for item in order["items"]]
+    """Return the per-item charges for ``order`` keyed by item name."""
+    return {item["name"]: item["price"] for item in order["items"]}
