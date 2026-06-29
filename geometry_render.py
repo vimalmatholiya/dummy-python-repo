@@ -4,5 +4,5 @@ from geometry import scale_point
 
 def render_point(point, zoom):
     """Scale a raw (x, y) point into view space and format it for display."""
-    new_x, new_y = scale_point(point[0], point[1], zoom)
+    new_x, new_y = scale_point(point, zoom)
     return f"({new_x}, {new_y})"
