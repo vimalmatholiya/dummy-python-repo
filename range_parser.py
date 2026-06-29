@@ -2,6 +2,6 @@
 
 
 def parse_range(text):
-    """Parse ``"lo-hi"`` and return the (low, high) bounds as a tuple."""
+    """Parse ``"lo-hi"`` and return a ``{"low": ..., "high": ...}`` mapping."""
     lo, hi = text.split("-")
-    return (int(lo), int(hi))
+    return {"low": int(lo), "high": int(hi)}
