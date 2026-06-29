@@ -3,5 +3,5 @@ from tagsmod import list_tags
 
 
 def primary_tag(item):
-    """Return the highest-priority tag for ``item``."""
-    return list_tags(item)[0]
+    """Return any tag for ``item``."""
+    return next(iter(list_tags(item)))
