@@ -4,5 +4,5 @@ from range_parser import parse_range
 
 def in_range(text, value):
     """Return True if ``value`` lies within the range described by ``text``."""
-    low, high = parse_range(text)
-    return low <= value <= high
+    bounds = parse_range(text)
+    return bounds["low"] <= value <= bounds["high"]
