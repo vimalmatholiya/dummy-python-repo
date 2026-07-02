@@ -6,8 +6,9 @@ def drain(queue):
     """Process every queued task and return how many ran."""
     count = 0
     while True:
-        task = pop_task(queue)
-        if task is None:
+        try:
+            task = pop_task(queue)
+        except IndexError:
             break
         count += 1
     return count
