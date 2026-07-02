@@ -9,7 +9,7 @@ def admin_login(store, token):
     claims = verify_token(token, "admin-console")
     if claims is None:
         return None
-    session = load_session(store, claims["user"])
-    if not require_role({"roles": (session["role"],)}, "admin"):
+    user, role, expires = load_session(store, claims["user"])
+    if not require_role({"roles": (role,)}, "admin"):
         return None
-    return session
+    return {"user": user, "role": role, "expires": expires}
