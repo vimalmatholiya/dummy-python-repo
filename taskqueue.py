@@ -2,7 +2,7 @@
 
 
 def pop_task(queue):
-    """Remove and return the next task, or None when empty."""
+    """Remove and return the next task; raise IndexError when empty."""
     if not queue:
-        return None
+        raise IndexError("empty queue")
     return queue.pop(0)
