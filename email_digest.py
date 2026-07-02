@@ -3,7 +3,7 @@ from report_service import summarize
 from template_engine import render
 
 
-def build_digest(rows, template):
+def build_digest(rows, template, locale="en_US"):
     """Render the daily ticket digest email body."""
     counts = summarize(rows)
-    return render(template, {"open": counts["open"], "closed": counts["closed"]})
+    return render(template, {"open": counts["open"], "closed": counts["closed"]}, locale)
