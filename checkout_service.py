@@ -6,7 +6,7 @@ from money import to_cents
 
 def checkout(order, card_token):
     """Price ``order``, charge ``card_token``, and return a confirmation dict."""
-    total = compute_total(order["lines"], order["tax_rate"])
+    total = compute_total(order["lines"], order["tax_rate"], order.get("discount", 0.0))
     result = charge(card_token, to_cents(total))
     if result is None:
         return {"ok": False, "reason": "card_declined"}
