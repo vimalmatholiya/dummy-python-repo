@@ -6,4 +6,4 @@ from fx_rates import get_rate
 def bill_in_currency(total_usd, target_currency):
     """Return ``total_usd`` billed in ``target_currency``."""
     rate = get_rate("USD", target_currency)
-    return convert(total_usd, rate)
+    return convert(total_usd, rate, target_currency)
