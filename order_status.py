@@ -1,9 +1,9 @@
 """Order state transitions."""
 
-VALID_STATES = ("pending", "paid", "shipped")
+VALID_STATES = ("pending", "captured", "shipped")
 
 
 def mark_paid(order):
-    """Advance ``order`` into the paid state after a successful capture."""
-    order["status"] = "paid"
+    """Advance ``order`` into the captured state after a successful charge."""
+    order["status"] = "captured"
     return order
