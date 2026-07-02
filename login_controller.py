@@ -6,7 +6,7 @@ from token_service import verify_token
 
 def admin_login(store, token):
     """Authenticate ``token`` and return the admin session, or ``None``."""
-    claims = verify_token(token)
+    claims = verify_token(token, "admin-console")
     if claims is None:
         return None
     session = load_session(store, claims["user"])
