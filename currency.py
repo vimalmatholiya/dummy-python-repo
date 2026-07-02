@@ -11,8 +11,12 @@ def convert(amount, rate, target_currency):
 
 
 def parse_amount(text):
-    """Parse a money string like ``'12.50'`` into a float; a blank cell is 0.0."""
+    """Parse a money string like ``'12.50'`` into a float.
+
+    Raises ``ValueError`` on blank or malformed input instead of silently
+    coercing it to zero, so bad ledger rows fail loudly rather than posting a $0.
+    """
     text = text.strip()
     if not text:
-        return 0.0
+        raise ValueError("empty amount")
     return float(text)
