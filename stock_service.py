@@ -1,9 +1,13 @@
 """Warehouse stock operations."""
 
 
-def reserve(sku, qty):
-    """Reserve ``qty`` units of ``sku`` and return a reservation id."""
-    return f"resv-{sku}-{qty}"
+def reserve(warehouse, sku, qty):
+    """Reserve ``qty`` units of ``sku`` in ``warehouse`` and return a reservation id.
+
+    Reservations are now scoped to a specific warehouse so multi-site inventory
+    doesn't double-book the same physical stock.
+    """
+    return f"resv-{warehouse}-{sku}-{qty}"
 
 
 def available(inventory, sku):
