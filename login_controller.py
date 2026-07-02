@@ -1,5 +1,5 @@
 """Login flow tying token, session, and role checks together (in-diff caller)."""
-from authz import require_role
+from authz import PermissionDenied, require_role
 from session_repo import load_session
 from token_service import verify_token
 
@@ -10,6 +10,8 @@ def admin_login(store, token):
     if claims is None:
         return None
     user, role, expires = load_session(store, claims["user"])
-    if not require_role({"roles": (role,)}, "admin"):
+    try:
+        require_role({"roles": (role,)}, "admin")
+    except PermissionDenied:
         return None
     return {"user": user, "role": role, "expires": expires}
